@@ -1,7 +1,9 @@
 **Product Recommendation Assistant**
+
 This is an interactive Product Recommendation Assistant web app built with Streamlit. It allows users to find the best matching products, similar alternatives, and related accessories based on text or voice input queries.
 
 **Key Features**
+
 webscrapping samsung and apple products from amazon
 
 Supports both text and audio input for user queries using speech recognition.
@@ -19,6 +21,7 @@ Allows adding recommended items to a session-based shopping cart.
 Implements synonym mapping for better category and product recognition.
 
 **Dataset details**
+
 product_id:
 Unique identifier for each product.
 
@@ -56,6 +59,7 @@ Is_accessory:
 Boolean or flag indicating whether the item is an accessory (e.g., charger, case) or a main product.
 
 **Technologies Used**
+
 Python, Streamlit (web UI framework)
 
 FAISS (similarity search)
