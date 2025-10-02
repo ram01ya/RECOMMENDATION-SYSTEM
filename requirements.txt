@@ -1,0 +1,9 @@
+streamlit
+pandas
+numpy
+faiss-cpu
+sentence-transformers
+nltk
+regex
+SpeechRecognition
+# PyAudio
