@@ -8,7 +8,17 @@ import nltk
 from nltk.tokenize import word_tokenize
 
 # Ensure 'punkt' tokenizer is available
-nltk.download('punkt', quiet=True)
+import nltk
+import os
+
+# --- Set local nltk_data path so Streamlit can find punkt ---
+nltk_data_path = os.path.join(os.path.dirname(__file__), "nltk_data")
+nltk.data.path.append(nltk_data_path)
+
+# Download punkt locally if not already present
+nltk.download('punkt', download_dir=nltk_data_path, quiet=True)
+
+# nltk.download('punkt', quiet=True)
 
 # --- Caching functions ---
 @st.cache_data
@@ -204,3 +214,4 @@ if st.session_state.cart:
         st.sidebar.markdown(f"- {item['brand']} {item['model']} - ₹{item['price']}")
 else:
     st.sidebar.info("Cart is empty.")
+
