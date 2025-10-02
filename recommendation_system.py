@@ -20,7 +20,7 @@ nltk.download('punkt')
 # Load dataset
 @st.cache_data
 def load_data():
-    df = pd.read_csv("D:\datasets\\boston project\\rs_dataset (1).csv")  # Adjust this path
+    df = pd.read_csv("dataset.csv")  # Adjust this path
     df["text_for_faiss"] = df.apply(
         lambda row: f"{row['brand']} {row['model']} {row['product_title']} {row['features']} {row['category']}", axis=1
     )
@@ -254,4 +254,5 @@ if st.sidebar.button("🛒 View Cart"):
         for item in st.session_state.cart:
             st.sidebar.markdown(f"- {item['brand']} {item['model']} - ₹{item['price']}")
     else:
+
         st.sidebar.info("Cart is empty.")
