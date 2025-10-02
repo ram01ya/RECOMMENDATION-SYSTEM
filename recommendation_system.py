@@ -58,8 +58,11 @@ def extract_price_constraint(query):
         return "above", int(match.group(2))
     return None, None
 
+import re
+
 def extract_model_hint(query):
-    tokens = word_tokenize(query)
+    # Simple tokenizer: split words by alphanumeric characters
+    tokens = re.findall(r'\b\w+\b', query)
     return [t for t in tokens if re.match(r"[a-zA-Z]\d+[a-zA-Z]", t) or (t.isdigit() and len(t) <= 2)]
 
 def generate_amazon_link(product_id, category):
@@ -214,4 +217,5 @@ if st.session_state.cart:
         st.sidebar.markdown(f"- {item['brand']} {item['model']} - ₹{item['price']}")
 else:
     st.sidebar.info("Cart is empty.")
+
 
